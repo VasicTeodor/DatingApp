@@ -50,7 +50,7 @@ namespace DatingApp.Api.Controllers
             return StatusCode(201);//CreatedAtRoute where user can see new profile
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
