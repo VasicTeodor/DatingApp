@@ -43,6 +43,7 @@ namespace DatingApp.Api
                 });
             services.AddCors();
             services.AddAutoMapper();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
 
             services.AddTransient<Seed>();
 
