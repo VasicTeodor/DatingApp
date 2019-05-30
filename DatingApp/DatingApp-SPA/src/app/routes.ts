@@ -10,6 +10,7 @@ import { MemberListResolver } from './_resolvers/member-llist.resolver';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.gurad';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -22,7 +23,7 @@ export const appRoutes: Routes = [
             { path: 'member/edit', component: MemberEditComponent, resolve: {user: MemberEditResolver},
                 canDeactivate: [PreventUnsavedChanges]},
             { path: 'messages', component: MessagesComponent},
-            { path: 'lists', component: ListsComponent},
+            { path: 'lists', component: ListsComponent, resolve: {users: ListsResolver}},
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full'} // order is important and this need to be last
